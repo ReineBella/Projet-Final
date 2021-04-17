@@ -11,9 +11,11 @@ namespace GestionEtudiants
 
         // Méthode AddNotes
         public void AddNotes(Notes note)
-        {
+        {            
             this.ListeNotes.Add(note);
+            
         }
+     
         // Surharge Méthode AddNotes
         public void AddNotes(int num, int code, double note)
         {
@@ -23,30 +25,22 @@ namespace GestionEtudiants
         // Méthode NotesEtudiant
         public List<Notes> NotesEtudiants(int num)
         {
-            List<Notes> NotesEtudiant=null;
-            foreach(Notes n in ListeNotes)
+            List<Notes> NotesparEtudiant = new List<Notes>();
+            foreach(Notes n in this.ListeNotes)
             {
-                if (n.NumeroEtudiant == num) NotesEtudiant.Add(n);
+                if (n.NumEtudiant == num) NotesparEtudiant.Add(n);
             }
-            return NotesEtudiant;
+            return NotesparEtudiant;
         }
 
-        // Méthode AfficheNotesEtudiants
-        public void AfficheNotesEtudiants(int num)
+        // Méthode FindNotes; Cherche ou vérifie si ces notes sont déjà saisies
+        public bool FindNotes(int num, int numcours)
         {
-            List<Notes> ListeET= this.NotesEtudiants(num);
-            int NumEt = ListeET[0].NumeroEtudiant;
-            String Nom = Classe.NomEtudiant(NumEt);
-            String Prenom = Classe.PrenomEtudiant(NumEt);
-            
-            Console.WriteLine("Notes pour Etudiant: "+ NumEt
-                    +" "+ Nom +" "+Prenom+"\n");
-            
-            for (int i=0; i < ListeET.Count; i++)
+            foreach (Notes e in ListeNotes)
             {
-                Console.WriteLine(ListeET[i].NumCours+" "+ ListeET[i].Note+"\n");
+                if (e.NumEtudiant == num && e.NumCours == numcours) return true;
             }
+            return false;
         }
-
     }
 }
