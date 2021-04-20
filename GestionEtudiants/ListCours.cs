@@ -43,7 +43,7 @@ namespace GestionEtudiants
         public void AddCours(int num, int code, String titre)
         {
             if (!FindCours(num))
-                ListeCours.Add(new Cours(num, code, titre));
+                ListeCours.Add(new Cours(num, "" + code, titre));
             
         }
 
