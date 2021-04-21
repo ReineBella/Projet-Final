@@ -1,4 +1,0 @@
-N° Etudiant: 877924
-Nom:         Jean
-Prénom:      Luc
-

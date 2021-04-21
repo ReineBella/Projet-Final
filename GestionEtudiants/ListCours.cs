@@ -12,7 +12,7 @@ namespace GestionEtudiants
         // Méthode FindCours
         public bool FindCours(int num)
         {
-            foreach(Cours c in ListeCours)
+            foreach (Cours c in ListeCours)
             {
                 if (c.NumCours == num) return true;
             }
@@ -29,22 +29,22 @@ namespace GestionEtudiants
 
             return null;
         }
-       
+
 
         // Méthode AddCours
         public void AddCours(Cours c)
         {
             if (!FindCours(c.NumCours))
                 ListeCours.Add(c);
-            
+
         }
 
         // Méthode AddCours
         public void AddCours(int num, int code, String titre)
         {
             if (!FindCours(num))
-                ListeCours.Add(new Cours(num, "" + code, titre));
-            
+                ListeCours.Add(new Cours(num, code, titre));
+
         }
 
     }
